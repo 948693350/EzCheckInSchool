@@ -3,12 +3,14 @@ import time
 import random
 import requests
 
+'''
 # 获取response.json dict
 with open('./response.json', 'r', encoding='utf8')as fp:
     response_json = json.load(fp)
     college_all = response_json['data']['collegeAll']
     major_all = response_json['data']['majorAll']
     class_all = response_json['data']['classAll']
+'''
 
 # 输入Secrets
 stu_name = input()
@@ -32,6 +34,10 @@ def main():
         exit(1)
 
     # 获取deptId
+    college_id = 80035
+    major_id = 80035
+    class_id = 80035
+    '''
     try:
         for college in college_all:
             if college['name'] == college_name:
@@ -48,6 +54,7 @@ def main():
     except NameError:
         print_info_error()
         exit(1)
+    '''
     # 时间判断 Github Actions采用国际标准时
     hms = update_time()
     if (hms[0] >= 6) & (hms[0] < 8):
